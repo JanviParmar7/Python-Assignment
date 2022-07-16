@@ -18,8 +18,8 @@
                 {% endwith %}
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
-                        <h1 class="mb-5" id="header">Customer Edit</h1>
-                        <h4><strong>Most Welcome to customer of home Appliances</strong></h4>
+                        <h1 class="mb-5" id="header">Information of {{ account[17] or ''}}</h1>
+                        <h4><strong>Most Welcome to {{ account[17] or ''}} in home Appliances Site</strong></h4>
                         <form
                             onsubmit="return !!(checkemail() & customername1() & firstname1() & lastname1() & dateofbirth1() & mobilenumber1() & address1() & city1() & state1() & zipcode1())"
                             action="{{url_for('updatecustomer')}}" method="post" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
                              <div class="form-outline mb-4">
                                 {% if account[13] != None %}
                                 <div>
-                                    <img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 picture" style="border-radius:50%;" width="400" hight="400" alt="Profile-Picture">
+                                    <a href="{{ url_for('static', filename='photo/' + account[13] or '')}}"><img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 picture" style="border-radius:50%;" width="200" hight="200" alt="Profile-Picture"></a>
                                 </div>
                                 {% else %}
                                 <div>
@@ -92,11 +92,10 @@
                             <div class="form-outline mb-4">
                                 <select type="text" id="statee" class="form-control form-control-lg" name="state"
                                     value="{{account[9] or '' }}">
-                                    <option value="" selected>
-                                        {% if account[9] != None %}
-                                            {{account[9] or '' }}
+                                    <option value="{{account[9] or '' }}" selected>{% if account[9] != None %}
+                                        {{account[9] or '' }}
                                         {% else %}
-                                            Select State
+                                        Select State
                                         {% endif %}
                                     </option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>

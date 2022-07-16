@@ -38,7 +38,7 @@
                     <div class="text-center">
                         {% if account[13] != None %}
                         <div>
-                            <img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 imagephoto" style="border-radius: 50%;" width="200" height="200" alt="Profile-Picture">
+                            <a href="{{ url_for('static', filename='photo/' + account[13] or '')}}"><img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 imagephoto" style="border-radius: 50%;" width="200" height="200" alt="Profile-Picture"></a>
                         </div>
                         {% else %}
                         <div>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="text-center mt-3">
-                        <h1 id="header" class="mt-2 mb-0">Welcome {{ account[17] or ''}}</h1>
+                        <h1 id="header" class="mt-2 mb-0">{{ account[17] or ''}} Profile</h1>
                     </div>
                     <br />
                     <br />

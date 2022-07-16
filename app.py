@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import os
 from werkzeug.utils import secure_filename
+
 app = Flask(__name__)
 app.secret_key = "secret"
 
@@ -23,7 +24,7 @@ app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = FILE
 app.config['UPLOAD_FOLDER_IMAGE'] = PHOTO
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 ALLOWED_EXTENSIONS = set(['pdf'])
 
 @app.route("/")
