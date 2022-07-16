@@ -1,0 +1,168 @@
+{% extends 'base.html'%}
+
+{% block title %} Edit Page {% endblock %}
+
+{% block body %}
+
+<section id="section" class="vh-200" style="background-color: #b3c7">
+    <div class="container py-9 h-100">
+        <div class="row d-flex justify-content-center align-items-center w-200 h-100">
+            <div id="formedit" class="col-6 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h1 class="mb-5" id="header">Customer Edit</h1>
+                        <h4><strong>Most Welcome to new customer of home Appliances</strong></h4>
+                        <form
+                            onsubmit="return !!(checkemail() & customername1()  & fileupload1() & firstname1() & lastname1() & dateofbirth1() & mobilenumber1() & address1() & city1() & state1() & zipcode1())"
+                            action="{{url_for('updatecustomer1')}}" enctype="multipart/form-data" method="post">
+                            <div class="form-outline mb-4">
+                                <input type="hidden" name="id" class="form-control form-control-lg"
+                                    value="{{account[0] or '' }}" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="hidden" id="customerid" name="customerid"
+                                    class="form-control form-control-lg" value="{{account[1] or '' }}" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                {% if account[13] != None %}
+                                <div>
+                                    <img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 imagephoto" style="border-radius: 50%;" width="200" height="200" alt="Profile-Picture">
+                                </div>
+                                {% else %}
+                                <div>
+                                    <img src="static/images/profile.jpg">-
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="customername" class="form-control form-control-lg"
+                                    name="customername" placeholder="Enter Customer Name"
+                                    value="{{account[17] or '' }}" />
+                                <p id="customer" class="error"></p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="firstname" class="form-control form-control-lg" name="firstname"
+                                    placeholder="Enter First Name" value="{{account[2] or '' }}" />
+                                <p id="first" class="error"></p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="lastname" class="form-control form-control-lg" name="lastname"
+                                    placeholder="Enter Last Name" value="{{account[3] or '' }}" />
+                                <p id="last" class="error"></p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="date" id="dateofbirth" class="form-control form-control-lg"
+                                    name="dateofbirth" placeholder="Enter Date-Of-Birth"
+                                    value="{{account[4] or '' }}" />
+                                <p id="datee" class="error"></p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="mobileno" class="form-control form-control-lg"
+                                    name="mobilenumber" placeholder="Enter Mobile Number"
+                                    value="{{account[5] or '' }}" />
+                                <p id="mobile" class="error"></p>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label>Gender</label>
+                                <input type="radio" name="gender" value="Male" id="mal" class="mx-2" />Male
+                                <input type="radio" name="gender" value="Female" id="fem" class="mx-2" />Female
+                                <p id="sel" hidden>{{account[6] or '' }}</p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="addresss" class="form-control form-control-lg" name="address"
+                                    placeholder="Enter Address" value="{{account[7] or '' }}" />
+                                <p id="add" class="error"></p>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="cityy" class="form-control form-control-lg" name="city"
+                                    placeholder="Enter City" value="{{account[8] or '' }}" />
+                                <p id="citi" class="error"></p>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <div class="form-outline mb-4">
+                                    <select type="text" id="statee" class="form-control form-control-lg" name="state"
+                                        value="{{account[9] or '' }}">
+                                        <option value="" selected>Enter state</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Jammu and Kashmirm</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Mizoram">Delhi</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                    </select>
+                                    <p id="stat" class="error"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="text" id="zipcodee" class="form-control form-control-lg" name="zipcode"
+                                    placeholder="Enter Zipcode" value="{{account[10] or '' }}" />
+                                <p id="zicode" class="error"></p>
+                            </div>
+                            <div class="row">
+                                <div id="hint" class="col-lg-4">Edit Profile Picture</div>
+                                <div class="col-lg-8">
+                                <div class="form-outline mb-4">
+                                    <input type="file" id="imageupload" class="form-control form-control-lg"
+                                        class="form-control" autocomplete="off" name="image" value="" />
+                                    <p id="photo" class="error"></p></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="hint" class="col-lg-4">Attach Birth Cirtificate</div>
+                                <div class="col-lg-8">
+                                <div class="form-outline mb-4">
+                                   <input type="file" id="fileupload" class="form-control form-control-lg"
+                                    class="form-control" autocomplete="off" name="file" value="{{account[12] or '' }}"/>
+                                    <p id="files" class="error"></p>
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="email" class="form-control form-control-lg" name="email"
+                                    placeholder="Enter E-mail" value="{{account[15] or '' }}" readonly />
+                                <p id="mail" class="error"></p>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="date" id="profiledate" class="form-control form-control-lg"
+                                    name="profileupdatedate" readonly value="{{account[11] or '' }}" />
+                            </div>
+                            {% if error %}
+                            <p class="error"><strong>{{ error }}</strong></p>
+                            {% endif %}
+                            <button class="btn btn-primary btn-lg btn-block"
+                                onclick="return confirm('Are You Sure To Update Your Record?')"
+                                otype=" submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

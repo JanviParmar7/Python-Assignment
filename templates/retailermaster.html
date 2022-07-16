@@ -1,0 +1,85 @@
+{% extends 'base.html'%}
+
+{% block title %} Retailer Master Page {% endblock %}
+
+{% block body %}
+
+<section id="master" class="container-fluid">
+    <div class="col-md-12">
+        <div class="jumbotron p-3">
+            <nav id="heading" class="navbar navbar-expand-lg navbar-light">
+                <h1 class="tablehead">Retailer Master Page</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a id="log" href="{{url_for('logout')}}"
+                                onclick="return confirm('You want to log out this seesion?');" type="submit"
+                                class="btn btn-light">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <div class="table-responsive">
+                <div style="overflow-x: auto;">
+                    <table id="table" class="table table-hover table-light">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Customer Name</th>
+                                <th>Full Name</th>
+                                <th>Date Of Birth</th>
+                                <th>Mobile Number</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Profile Update Date</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row[17] or ''}}</td>
+                            <td>{{ row[2] or ''}} {{ row[3] or ''}}</td>
+                            <td>{{ row[4] or ''}}</td>
+                            <td>{{ row[5] or ''}}</td>
+                            <td>{{ row[6] or ''}}</td>
+                            <td>{{ row[7] or ''}} {{ row[8] or ''}} {{ row[9] or ''}} {{ row[10] or ''}}</td>
+                            <td>{{ row[15] or ''}}</td>
+                            <td>{{ row[11] or ''}}</td>
+                            <td><a id="btninfo" href="{{url_for('fetchupdatecustomer',customer_id= row[1])}}"
+                                    class="btn btn-info">Edit</a>
+                            </td>
+                            <td><a id="btnsecond" href="{{ url_for('deleterecord', customer_id= row[1]) }}" class="btn btn-secondary"
+                                    onclick="return confirm('Are You Sure To Delete?')">Delete</a></td>
+                            <td><a id="btnwarn" href="{{ url_for('get_password', customer_id= row[1]) }}" class="btn btn-warning">Change
+                                    Password</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                        <center>
+                            <a id="btnadd" href="{{url_for('newcustomer')}}" type="submit" class="btn btn-primary">Add New
+                                Customer</a>
+                        </center>
+                </div>
+             </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

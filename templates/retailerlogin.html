@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+
+{% block title %} Retailer Login Page {% endblock %}
+
+{% block body %}
+<section id="section" class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex  h-100">
+            <div class="col-xl-15">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center">
+                                    <img class="imagelock" src="{{url_for('static',filename='images/lock.jpg')}}">
+                                    <h1 class="mt-1 mb-5 pb-1">Login</h1>
+                                </div>
+
+                                <form onsubmit="return !!(check() & checkemail())"
+                                    action="{{url_for('retailerlogin1')}}" method="post">
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="email" class="form-control" name="email"
+                                            placeholder="Enter Your E-mail Adderess" />
+                                        <p id="mail" class="error"></p>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="password" class="form-control" name="password"
+                                            placeholder="Enter Your Password" />
+                                        <p id="message" class="error"></p>
+                                    </div>
+                                    <div class="text-center pt-1 mb-5 pb-1">
+                                        <button id="btnenter" class="btn  btn-outline-primary" type="submit">Log
+                                            in</button>
+                                    </div>
+
+                                    {% if error %}
+                                    <p class="error"><strong>{{ error }}</strong></p>
+                                    {% endif %}
+
+                                    <div id="align" class="d-flex align-items-center justify-content-center pb-4">
+                                        <p class="mb-0 me-2">Don't have an account?</p>
+                                        <a href="{{url_for('retailerinsert1')}}">Add New
+                                            Retailer</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="concept" class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h1 class="mb-4">Most Welcome To Retailer In This Site</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

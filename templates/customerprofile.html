@@ -1,0 +1,131 @@
+{% extends 'base.html'%}
+
+{% block title %} Customer Profile {% endblock %}
+
+{% block body %}
+<section id="headingprofile">
+    <div class="container">
+        <nav id="heading" class="navbar navbar-expand-lg navbar-light">
+            <h1 class="tablehead">Retailer Master Page</h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a id="log" href="{{url_for('logoutcustomer')}}"
+                            onclick="return confirm('You want to log out this seesion?');" type="submit"
+                            class="btn btn-light">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div id="profilepage" class="row d-flex justify-content-center">
+            <div id="profile" class="col-md-7">
+                <div class="card p-3 py-4">
+                    <div class="text-center">
+                        {% if account[13] != None %}
+                        <div>
+                            <img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 imagephoto" style="border-radius: 50%;" width="200" height="200" alt="Profile-Picture">
+                        </div>
+                        {% else %}
+                        <div>
+                            <img src="static/images/profile.jpg">
+                        </div>
+                       {% endif %}
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <h1 id="header" class="mt-2 mb-0">Welcome {{ account[17] or ''}}</h1>
+                    </div>
+                    <br />
+                    <br />
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <h5>Customer Name</h5>
+                            </td>
+                            <td>{{ account[17] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Full Name</h5>
+                            </td>
+                            <td>{{ account[2] or ''}} {{ account[3] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>E-mail</h5>
+                            </td>
+                            <td>{{ account[15] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Mobile number </h5>
+                            </td>
+                            <td>{{ account[5] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Date Of Birth</h5>
+                            </td>
+                            <td>{{ account[4] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Gender</h5>
+                            </td>
+                            <td>{{ account[6] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Address</h5>
+                            </td>
+                            <td>{{ account[7] or ''}} {{ account[8] or ''}} {{ account[9] or ''}} {{ account[10] or ''}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Birth Cirtificate</h5>
+                            </td>
+                            <td>
+                                {% if account[12] != None %}
+                                <div>
+                                    <a href="{{ url_for('static', filename='file/' + account[12] or '')}}">{{ account[12] or ''}}</a>
+                                </div>
+                                {% else %}
+                                <div>
+                                    <h6>No File Choosen</h6>
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h5>Profile Updated Date</h5>
+                            </td>
+                            <td>{{ account[11] or ''}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><a href="{{url_for('fetchupdatecustomer1')}}" id="btnenter"
+                                    class="btn btn-info">Edit Your Profile</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

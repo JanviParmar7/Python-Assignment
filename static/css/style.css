@@ -1,0 +1,391 @@
+.container-fluid {
+    background-color: #1a4364c9;
+    padding-top: 10px;
+    border: 1px solid #5f6468c9;
+}
+
+.navbar-brand {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.image {
+    margin: 3% 0% 2% 27%;
+}
+
+.image2 {
+    margin: 13% 0% 16% 28%;
+    height: 20rem;
+}
+.picture
+{
+    width:250px;
+    height:250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar {
+    margin-bottom: 2%;
+    padding: 0 15px 1rem;
+    background-color: rgb(167, 167, 157);
+}
+
+.nav-item {
+    padding: 10px 10px;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: #4f7ca1c9;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 75, .55);
+}
+
+.line {
+    font-size: 50px;
+    text-align: center;
+    font-style: italic;
+    background-color: rgb(207, 198, 183);
+    color: rgb(146, 42, 42);
+    margin: 20px 0px;
+}
+
+#section {
+    background: linear-gradient(to right, #51ad8a, #5386b6);
+    padding: 1% 2% 0% 2%;
+}
+
+#sectioncustom {
+    background: linear-gradient(to right, #5f6eb1, #8e9b53);
+}
+
+.imagelock {
+    width: 60%;
+    height: auto;
+    margin-top: 2%;
+}
+
+.alert {
+    width: 40%;
+    margin-left: 30%;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #694d39, #5a2b2c, #8d4360, #cea3c1);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #816d5f, #234b70);
+}
+
+#homecustomer {
+    background-color: rgb(158, 115, 99);
+}
+
+.error {
+    text-align: center;
+    color: rgb(173, 19, 19);
+}
+#formedit {
+    margin: 2rem 0rem;
+    width: 60%;
+}
+
+#profile {
+    margin-bottom: 10%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.head {
+    color: rgb(235, 214, 214);
+}
+
+#master {
+    background-color: rgb(179, 206, 207);
+    margin-bottom: 1%;
+}
+
+#color {
+    color: rgb(105, 36, 36);
+}
+
+#heading {
+    padding: 0 15px 0;
+    background-color: rgb(63, 81, 196);
+}
+#header {
+    color: rgb(109, 57, 57);
+}
+#header1 {
+    color: rgb(109, 57, 57);
+}
+.tablehead {
+    margin: 2% 0% 3% 0%;
+    color: #fff;
+}
+
+.table {
+    text-align: center;
+}
+
+.dataTables_length {
+    margin-bottom: 2rem;
+}
+
+.dataTables_info {
+    margin-top: 1em;
+}
+
+h6
+{
+    color:red;
+}
+
+.dataTables_paginate {
+    margin-top: 1em;
+}
+
+#hint
+{
+   font-weight:500;
+   font-size:1.2rem;
+   padding-top:0.6rem;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: rgb(129, 30, 30);
+}
+
+.table>thead {
+    vertical-align: ;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+*,
+::after,
+::before {
+    box-sizing: ;
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+@media (max-width:990px) {
+    body {
+        font-size: 2rem;
+        width: 100%;
+    }
+
+    #btninfo {
+        font-size: 2rem;
+    }
+
+    .dataTables_length {
+        font-size: 2.8rem;
+        margin-top: 1rem;
+    }
+
+    .form-control {
+        font-size: 1.8rem;
+    }
+    .col-md-8 {
+        width: auto;
+    }
+    .containt {
+        margin: 33% 0%;
+    }
+    .customerlogin
+    {
+        font-size:2rem;
+    }
+
+    #hint
+    {
+       font-size:1.5rem;
+       padding-top:0.5rem;
+       padding-bottom:0.5rem;
+    }
+    .picture
+    {
+        width:300px;
+        height:300px;
+    }
+
+    #color {
+        font-size:3.5rem;
+    }
+    #header {
+        color: rgb(109, 57, 57);
+        font-size:4.2rem;
+    }
+    #header1 {
+        color: rgb(109, 57, 57);
+        font-size:3.8rem;
+    }
+
+    #btnsecond {
+        font-size: 2rem;
+    }
+    #btncustomer
+    {
+        font-size: 1.6rem;
+    }
+    h4
+    {
+        font-size:1.8rem;
+    }
+    .alert {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 2rem;
+    }
+
+    #btnenter {
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+    #profile {
+        width:auto;
+        margin-top:1rem;
+    }
+    #align {
+        font-size: 1.8rem;
+    }
+
+    .nav-link {
+        font-size: 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 4rem;
+    }
+
+    .line {
+        font-size: 4rem;
+    }
+
+    #btnwarn {
+        font-size: 2rem;
+    }
+
+    #concept {
+        font-size: 4rem;
+        padding: 1rem;
+    }
+
+    #btnadd {
+        font-size: 2.8rem;
+        margin-top: 2.2rem;
+        margin-bottom: 2.2rem;
+    }
+
+    .navbar-light .navbar-toggler {
+        font-size: 2rem;
+    }
+
+    label {
+        display: inline-block;
+    }
+
+    #log {
+        font-size: 2rem;
+    }
+    .dataTables_filter {
+        float: none;
+        font-size: 2.8rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .dataTables_info {
+        font-size: 2rem;
+    }
+
+    .dataTables_paginate {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 3.3rem;
+    }
+    h4 {
+        font-size: 2.3rem;
+    }
+    h5
+    {
+        font-size:2rem;
+    }
+    .image {
+        margin: 5% 0% 5% 10%;
+    }
+
+    .imagelock {
+        width: 40%;
+    }
+
+    .image2 {
+        margin: 16% 0% 8% 10%;
+    }
+
+    .dataTables_info {
+        font-size: 2.8rem;
+    }
+
+    h6
+    {
+         font-size: 1.7rem;
+    }
+
+    .dataTables_paginate {
+        font-size: 2.3rem;
+    }
+
+    #formedit {
+        width:auto;
+        margin:1rem;
+    }
+}
+
+@media (max-width:1280px) {
+    .image {
+        margin: 5% 0% 5% 5%;
+    }
+
+    .image2 {
+        margin: 16% 0% 16% 13%;
+    }
+}

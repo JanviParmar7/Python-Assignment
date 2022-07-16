@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title %}Customer Home {% endblock %}
+
+{% block body %}
+<section id="sectionhome" class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" id="color">Home Appliances</a>
+        <ul class="navbar-nav ms-auto">
+            <a href="{{url_for('profile')}}" id="btncustomer" type="submit" class="btn btn-primary">Show Your
+                Profile Information</a>
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div>
+        <div><img class="image2" src="{{url_for('static',filename='images/2.jpg')}}"></div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

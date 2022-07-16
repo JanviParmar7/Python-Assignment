@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+{% block title %} Retailer Update Page {% endblock %}
+
+{% block body %}
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex  h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center ">
+                                    <h1 class="mt-1 mb-5 pb-1" id="header">Update Retailer Data</h1>
+                                </div>
+
+                                <form action="{{url_for('updaterecord')}}" method="post">
+                                    <div class="form-outline mb-4">
+                                        <input type="hidden" id="id" class="form-control" value="{{account[0]}}"
+                                            name="id" />
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="email" class="form-control" value="{{account[1]}}"
+                                            name="email" />
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="customername" class="form-control" value="{{account[3]}}"
+                                            name="customername" />
+                                    </div>
+
+                                    <div class="text-center pt-1 mb-5 pb-1">
+                                        <button class="btn  btn-outline-primary" type="submit">Update</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h1 class="mb-4">Update Record</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
