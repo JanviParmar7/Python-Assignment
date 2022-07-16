@@ -13,7 +13,7 @@
                         <h1 class="mb-5" id="header">Customer Edit</h1>
                         <h4><strong>Most Welcome to new customer of home Appliances</strong></h4>
                         <form
-                            onsubmit="return !!(checkemail() & customername1()  & fileupload1() & firstname1() & lastname1() & dateofbirth1() & mobilenumber1() & address1() & city1() & state1() & zipcode1())"
+                            onsubmit="return !!(checkemail() & customername1() & imageupload1() & fileupload1() & firstname1() & lastname1() & dateofbirth1() & mobilenumber1() & address1() & city1() & state1() & zipcode1())"
                             action="{{url_for('updatecustomer1')}}" enctype="multipart/form-data" method="post">
                             <div class="form-outline mb-4">
                                 <input type="hidden" name="id" class="form-control form-control-lg"
@@ -85,7 +85,13 @@
                                 <div class="form-outline mb-4">
                                     <select type="text" id="statee" class="form-control form-control-lg" name="state"
                                         value="{{account[9] or '' }}">
-                                        <option value="" selected>Enter state</option>
+                                        <option value="" selected>
+                                            {% if account[9] != None %}
+                                                {{account[9] or '' }}
+                                            {% else %}
+                                                Select State
+                                            {% endif %}
+                                        </option>
                                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                         <option value="Assam">Assam</option>
                                         <option value="Bihar">Bihar</option>
@@ -155,7 +161,7 @@
                             {% if error %}
                             <p class="error"><strong>{{ error }}</strong></p>
                             {% endif %}
-                            <button class="btn btn-primary btn-lg btn-block"
+                            <button id="btnenter" class="btn btn-primary btn-lg btn-block"
                                 onclick="return confirm('Are You Sure To Update Your Record?')"
                                 otype=" submit">Update</button>
                         </form>

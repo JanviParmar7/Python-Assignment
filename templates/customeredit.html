@@ -92,7 +92,13 @@
                             <div class="form-outline mb-4">
                                 <select type="text" id="statee" class="form-control form-control-lg" name="state"
                                     value="{{account[9] or '' }}">
-                                    <option value="" selected>Enter state</option>
+                                    <option value="" selected>
+                                        {% if account[9] != None %}
+                                            {{account[9] or '' }}
+                                        {% else %}
+                                            Select State
+                                        {% endif %}
+                                    </option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                                     <option value="Assam">Assam</option>
@@ -132,9 +138,17 @@
                                     placeholder="Enter Zipcode" value="{{account[10] or '' }}" />
                                 <p id="zicode" class="error"></p>
                             </div>
-                            <div class="form-outline mb-4">
-                                <input type="text" id="fileupload" class="form-control form-control-lg"
-                                    class="form-control" autocomplete="off" name="file" value="{{account[12] or '' }}" placeholder="Birth Cirtificate is not" readonly/>
+                            <div class="row">
+                                <div id="hint" class="col-lg-4">Birth Cirtificate</div>
+                                <div class="col-lg-8">
+                                <div class="form-outline mb-4">
+                                    {% if account[12] != None %}
+                                        <a href="{{ url_for('static', filename='file/' + account[12] or '')}}" class="form-control form-control-lg" readonly>
+                                        {{account[12] or '' }}</a>
+                                    {% else %}
+                                    <input type="text" class="form-control form-control-lg" placeholder="No Birth Cirtificate Attach" readonly>
+                                    {% endif %}
+                                </div>
                             </div>
                             <div class="form-outline mb-4">
                                 <input type="text" id="email" class="form-control form-control-lg" name="email"
