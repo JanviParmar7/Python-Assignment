@@ -6,7 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import os
 from werkzeug.utils import secure_filename
-
 app = Flask(__name__)
 app.secret_key = "secret"
 
@@ -23,6 +22,9 @@ PHOTO = 'static/photo'
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = FILE
 app.config['UPLOAD_FOLDER_IMAGE'] = PHOTO
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['pdf'])
 
 @app.route("/")
 def index():
@@ -326,10 +328,8 @@ def updatecustomer1():
                 imagename = secure_filename(image.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 image.save(os.path.join(app.config['UPLOAD_FOLDER_IMAGE'], imagename))
-                cur.execute(
-                    f"""UPDATE customer_profile set firstname='{fname}', lastname='{lname}', dateofbirth='{dob}',mobilenumber='{mobile}', gender='{gender}', address='{address}', city='{city}',state='{state}', zipcode='{zipcode}',profileupdatedate='{dateupdate}',fileupload='{filename}',imageupload='{imagename}' WHERE customerid='{customerid}'""")
-                cur.execute(
-                    f"""UPDATE customer set customername='{customername}', email='{email}' WHERE id='{customerid}'""")
+                cur.execute(f"""UPDATE customer_profile set firstname='{fname}', lastname='{lname}', dateofbirth='{dob}',mobilenumber='{mobile}', gender='{gender}', address='{address}', city='{city}',state='{state}', zipcode='{zipcode}',profileupdatedate='{dateupdate}',fileupload='{filename}',imageupload='{imagename}' WHERE customerid='{customerid}'""")
+                cur.execute(f"""UPDATE customer set customername='{customername}', email='{email}' WHERE id='{customerid}'""")
                 conn.commit()
                 cur.close()
                 flash("Your Record update Successfully.")
