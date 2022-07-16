@@ -250,3 +250,27 @@ function fileupload1() {
     }
 }
 
+
+ function imageupload1()
+{
+    var fileInput =  document.getElementById('imageupload');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if(filePath == "")
+    {
+        document.getElementById("photo").innerHTML = "Required to attach Profile Picture";
+        return false;
+    }
+    if (!allowedExtensions.exec(filePath))
+    {
+        document.getElementById("photo").innerHTML = "Attach jpg,jpeg,gif,png format file";
+        fileInput.value = '';
+        return false;
+    }
+    else
+    {
+        document.getElementById("photo").innerHTML = "";
+        return true;
+    }
+}
+
