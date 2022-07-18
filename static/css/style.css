@@ -17,14 +17,15 @@
     margin: 13% 0% 16% 28%;
     height: 20rem;
 }
-.picture
-{
-    width:250px;
-    height:250px;
+
+.picture {
+    width: 250px;
+    height: 250px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 .navbar {
     margin-bottom: 2%;
     padding: 0 15px 1rem;
@@ -93,6 +94,7 @@
     text-align: center;
     color: rgb(173, 19, 19);
 }
+
 #formedit {
     margin: 2rem 0rem;
     width: 60%;
@@ -123,12 +125,15 @@ h1 {
     padding: 0 15px 0;
     background-color: rgb(63, 81, 196);
 }
+
 #header {
     color: rgb(109, 57, 57);
 }
+
 #header1 {
     color: rgb(109, 57, 57);
 }
+
 .tablehead {
     margin: 2% 0% 3% 0%;
     color: #fff;
@@ -146,20 +151,18 @@ h1 {
     margin-top: 1em;
 }
 
-h6
-{
-    color:red;
+h6 {
+    color: red;
 }
 
 .dataTables_paginate {
     margin-top: 1em;
 }
 
-#hint
-{
-   font-weight:500;
-   font-size:1.2rem;
-   padding-top:0.6rem;
+#hint {
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding-top: 0.6rem;
 }
 
 .dataTables_wrapper .dataTables_length,
@@ -213,6 +216,9 @@ tr {
     #btninfo {
         font-size: 2rem;
     }
+    option {
+    font-size:0.7rem;   
+    }
 
     .dataTables_length {
         font-size: 2.8rem;
@@ -222,52 +228,56 @@ tr {
     .form-control {
         font-size: 1.8rem;
     }
+
     .col-md-8 {
         width: auto;
     }
+
     .containt {
         margin: 33% 0%;
     }
-    .customerlogin
-    {
-        font-size:2rem;
+
+    .customerlogin {
+        font-size: 2rem;
     }
 
-    #hint
-    {
-       font-size:1.5rem;
-       padding-top:0.5rem;
-       padding-bottom:0.5rem;
+    #hint {
+        font-size: 1.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
     }
-    .picture
-    {
-        width:300px;
-        height:300px;
+
+    .picture {
+        width: 300px;
+        height: 300px;
     }
 
     #color {
-        font-size:3.5rem;
+        font-size: 3.5rem;
     }
+
     #header {
         color: rgb(109, 57, 57);
-        font-size:4.2rem;
+        font-size: 4.2rem;
     }
+
     #header1 {
         color: rgb(109, 57, 57);
-        font-size:3.8rem;
+        font-size: 3.8rem;
     }
 
     #btnsecond {
         font-size: 2rem;
     }
-    #btncustomer
-    {
+
+    #btncustomer {
         font-size: 1.6rem;
     }
-    h4
-    {
-        font-size:1.8rem;
+
+    h4 {
+        font-size: 1.8rem;
     }
+
     .alert {
         width: 80%;
         margin-left: 10%;
@@ -278,14 +288,17 @@ tr {
         margin-top: 2rem;
         font-size: 2rem;
     }
+
     #btnenter {
         margin-top: 2rem;
         font-size: 2rem;
     }
+
     #profile {
-        width:auto;
-        margin-top:1rem;
+        width: auto;
+        margin-top: 1rem;
     }
+
     #align {
         font-size: 1.8rem;
     }
@@ -328,6 +341,7 @@ tr {
     #log {
         font-size: 2rem;
     }
+
     .dataTables_filter {
         float: none;
         font-size: 2.8rem;
@@ -346,13 +360,15 @@ tr {
     h1 {
         font-size: 3.3rem;
     }
+
     h4 {
         font-size: 2.3rem;
     }
-    h5
-    {
-        font-size:2rem;
+
+    h5 {
+        font-size: 2rem;
     }
+
     .image {
         margin: 5% 0% 5% 10%;
     }
@@ -369,9 +385,8 @@ tr {
         font-size: 2.8rem;
     }
 
-    h6
-    {
-         font-size: 1.7rem;
+    h6 {
+        font-size: 1.7rem;
     }
 
     .dataTables_paginate {
@@ -379,8 +394,8 @@ tr {
     }
 
     #formedit {
-        width:auto;
-        margin:1rem;
+        width: auto;
+        margin: 1rem;
     }
 }
 
