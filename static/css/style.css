@@ -216,8 +216,9 @@ tr {
     #btninfo {
         font-size: 2rem;
     }
+
     option {
-    font-size:0.7rem;   
+        font-size: 0.7rem;
     }
 
     .dataTables_length {
@@ -234,7 +235,11 @@ tr {
     }
 
     .containt {
-        margin: 33% 0%;
+        margin: 40% 0%;
+    }
+
+    .containtcustomer {
+        margin: 54% 0%;
     }
 
     .customerlogin {
