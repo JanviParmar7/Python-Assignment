@@ -140,7 +140,7 @@
                             <div class="row">
                                 <div id="hint" class="col-lg-4">Birth Cirtificate</div>
                                 <div class="col-lg-8">
-                                <div class="form-outline mb-4">
+                                <div id="fill" class="form-outline mb-4">
                                     {% if account[12] != None %}
                                         <a href="{{ url_for('static', filename='file/' + account[12] or '')}}" class="form-control form-control-lg" readonly>
                                         {{account[12] or '' }}</a>
@@ -161,9 +161,9 @@
                             {% if error %}
                             <p class="error"><strong>{{ error }}</strong></p>
                             {% endif %}
-                            <button class="btn btn-primary btn-lg btn-block"
+                            <button id="btnenter" class="btn btn-primary btn-lg btn-block"
                                 onclick="return confirm('Are You Sure To Save This Record?')"
-                                otype=" submit">Update</button>
+                                type=" submit">Update</button>
                         </form>
                     </div>
                 </div>
