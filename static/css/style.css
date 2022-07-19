@@ -76,13 +76,13 @@
 }
 
 .gradient-custom-2 {
-    /* fallback for old browsers */
+    / fallback for old browsers /
     background: #fccb90;
 
-    /* Chrome 10-25, Safari 5.1-6 */
+    / Chrome 10-25, Safari 5.1-6 /
     background: -webkit-linear-gradient(to right, #694d39, #5a2b2c, #8d4360, #cea3c1);
 
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    / W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ /
     background: linear-gradient(to right, #816d5f, #234b70);
 }
 
