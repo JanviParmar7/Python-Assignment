@@ -2,6 +2,8 @@
     background-color: #1a4364c9;
     padding-top: 10px;
     border: 1px solid #5f6468c9;
+    width: 100%;
+    max-width: 100%;
 }
 
 .navbar-brand {
@@ -76,13 +78,13 @@
 }
 
 .gradient-custom-2 {
-    / fallback for old browsers /
+    /* fallback for old browsers */
     background: #fccb90;
 
-    / Chrome 10-25, Safari 5.1-6 /
+    /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #694d39, #5a2b2c, #8d4360, #cea3c1);
 
-    / W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ /
+    /* W3C,IE 10+/ Edge,Firefox 16+,Chrome 26+,Opera 12+,Safari 7+ */
     background: linear-gradient(to right, #816d5f, #234b70);
 }
 
@@ -173,10 +175,6 @@ h6 {
     color: rgb(129, 30, 30);
 }
 
-.table>thead {
-    vertical-align: ;
-}
-
 tbody,
 td,
 tfoot,
@@ -188,22 +186,9 @@ tr {
     border-width: 0;
 }
 
-*,
-::after,
-::before {
-    box-sizing: ;
-}
-
 @media (min-width: 768px) {
     .gradient-form {
         height: 100vh !important;
-    }
-}
-
-@media (min-width: 769px) {
-    .gradient-custom-2 {
-        border-top-right-radius: .3rem;
-        border-bottom-right-radius: .3rem;
     }
 }
 
