@@ -24,9 +24,6 @@ app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = FILE
 app.config['UPLOAD_FOLDER_IMAGE'] = PHOTO
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-ALLOWED_EXTENSIONS = set(['pdf'])
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -151,14 +148,22 @@ def newcustomer():
 def insertcustomer():
     if session['check']:
         cur = conn.cursor()
+        customernm = request.form.get('customername')
         email = request.form.get('email')
         password = request.form.get('password')
         confirmpassword = request.form.get('confirmpassword')
         cur.execute(f"SELECT * FROM customer where email = '{email}'")
         customeremail = cur.fetchone()
+        cur.execute(f"SELECT * FROM customer where customername = '{customernm}'")
+        customername = cur.fetchone()
         cur.close()
+
+
         if customeremail:
-            error = "This email is already exists give other E-mail id"
+            error = "This email is already exists give another E-mail id"
+            return render_template("addcustomer.html", error=error)
+        if customername:
+            error = "This customername is already exists give another customername"
             return render_template("addcustomer.html", error=error)
         if request.method == "POST":
             if password == confirmpassword:
@@ -201,6 +206,7 @@ def fetchupdatecustomer(customer_id):
 def updatecustomer():
     if session['check']:
         if request.method == "POST":
+            cur = conn.cursor()
             customerid = request.form.get("customerid")
             fname = request.form.get("firstname")
             lname = request.form.get("lastname")
@@ -211,21 +217,22 @@ def updatecustomer():
             city = request.form.get("city")
             state = request.form.get("state")
             zipcode = request.form.get("zipcode")
-            customername = request.form.get("customername")
             email = request.form.get("email")
             dateupdate = datetime.date.today()
-            cur = conn.cursor()
-            if request.method == "POST":
-                cur.execute(
-                    f"""UPDATE customer_profile set firstname='{fname}', lastname='{lname}', dateofbirth='{dob}',mobilenumber='{mobile}', gender='{gender}', address='{address}', city='{city}',state='{state}', zipcode='{zipcode}',profileupdatedate='{dateupdate}' WHERE customerid='{customerid}'""")
-                cur.execute(
-                    f"""UPDATE customer set customername='{customername}', email='{email}' WHERE id='{customerid}'""")
-                conn.commit()
-                cur.close()
-                flash("Customer Record Update Successfully.")
-                return redirect(url_for('display'))
+            customername = request.form.get("customername")
+            cur.execute(f"""UPDATE customer_profile set firstname='{fname}', lastname='{lname}', dateofbirth='{dob}',mobilenumber='{mobile}', gender='{gender}', address='{address}', city='{city}',state='{state}', zipcode='{zipcode}',profileupdatedate='{dateupdate}' WHERE customerid='{customerid}'""")
+            cur.execute(f"""UPDATE customer set customername='{customername}', email='{email}' WHERE id='{customerid}'""")
+            conn.commit()
+            cur.close()
+            flash("Customer Record Update Successfully.")
+            return redirect(url_for('display'))
+
     else:
         return redirect(url_for('retailer'))
+
+
+
+
 
 @app.route("/Delete-customer-profile/<int:customer_id>")
 def deleterecord(customer_id):
@@ -341,14 +348,12 @@ def updatecustomer1():
 @app.route("/logout_Reailer")
 def logout():
     session['check']=False
-    session.clear()
     flash("Retailer Logout Successfully.")
     return render_template("index.html")
 
 @app.route("/logout_Customer")
 def logoutcustomer():
     session['checkcustomer']=False
-    session.clear()
     flash("Customer Logout Successfully.")
     return render_template("index.html")
 
