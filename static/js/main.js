@@ -249,8 +249,8 @@ function fileupload1() {
         fileInput.value = '';
         return false;
     }
-    if (fileInput.files[0].size >= 3145728) {
-        document.getElementById("files").innerHTML = "File size should be less than or Equal to 3 MB";
+    if (fileInput.files[0].size >= 20971520) {
+        document.getElementById("files").innerHTML = "File size should be less than or Equal to 20 MB";
     } else {
         document.getElementById("files").innerHTML = "";
         return true;
@@ -262,19 +262,17 @@ function fileupload1() {
 function imageupload1() {
     var fileInput = document.getElementById('imageupload');
     var filePath = fileInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
     if (filePath == "") {
         document.getElementById("photo").innerHTML = "Required to attach Profile Picture";
         return false;
     }
     if (!allowedExtensions.exec(filePath)) {
-        document.getElementById("photo").innerHTML = "Attach jpg,jpeg,png format file";
+        document.getElementById("photo").innerHTML = "Attach jpg,jpeg,png,gif format file";
         fileInput.value = '';
         return false;
     }
-    if (fileInput.files[0].size > 1048576) {
-        document.getElementById("photo").innerHTML = "Images size should be less than 1 MB";
-    } else {
+    else {
         document.getElementById("photo").innerHTML = "";
         return true;
     }
