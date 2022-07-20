@@ -5,7 +5,7 @@
 {% block body %}
 
 <section id="section" class="vh-200" style="background-color: #b3c7a5;" xmlns="http://www.w3.org/1999/html">
-        <div id="edit" class="container py-9 h-100">
+    <div id="edit" class="container py-9 h-100">
         <div class="row d-flex justify-content-center align-items-center w-200 h-100">
             <div id="formedit" class="col-6 col-md-8 col-lg-6 col-xl-5">
                 {% with messages = get_flashed_messages() %}
@@ -31,21 +31,24 @@
                                 <input type="hidden" id="customerid" name="customerid"
                                     class="form-control form-control-lg" value="{{account[1] or '' }}" />
                             </div>
-                             <div class="form-outline mb-4">
+                            <div class="form-outline mb-4">
                                 {% if account[13] != None %}
                                 <div>
-                                    <a href="{{ url_for('static', filename='photo/' + account[13] or '')}}"><img src="{{ url_for('static', filename='photo/' + account[13] or '')}}" class="img-fluid my-5 picture" style="border-radius:50%;" width="200" hight="200" alt="Profile-Picture"></a>
+                                    <a href="{{ url_for('static', filename='photo/' + account[13] or '')}}"><img
+                                            src="{{ url_for('static', filename='photo/' + account[13] or '')}}"
+                                            class="img-fluid my-5 picture" style="border-radius:50%;" width="200"
+                                            hight="200" alt="Profile-Picture"></a>
                                 </div>
                                 {% else %}
                                 <div>
                                     <img src="{{url_for('static',filename='images/profile.jpg')}}">
                                 </div>
                                 {% endif %}
-                             </div>
+                            </div>
                             <div class="form-outline mb-4">
                                 <input type="text" id="customername" class="form-control form-control-lg"
-                                    name="customername" placeholder="Enter Customer Name"
-                                    value="{{account[17] or '' }}" />
+                                    name="customername" placeholder="Enter Customer Name" value="{{account[17] or '' }}"
+                                    readonly />
                                 <p id="customer" class="error"></p>
                             </div>
                             <div class="form-outline mb-4">
@@ -140,30 +143,32 @@
                             <div class="row">
                                 <div id="hint" class="col-lg-4">Birth Cirtificate</div>
                                 <div class="col-lg-8">
-                                <div class="form-outline mb-4">
-                                    {% if account[12] != None %}
-                                        <a href="{{ url_for('static', filename='file/' + account[12] or '')}}" class="form-control form-control-lg" readonly>
-                                        {{account[12] or '' }}</a>
-                                    {% else %}
-                                    <input type="text" class="form-control form-control-lg" placeholder="No Birth Cirtificate Attach" readonly>
-                                    {% endif %}
+                                    <div id="fill" class="form-outline mb-4">
+                                        {% if account[12] != None %}
+                                        <a href="{{ url_for('static', filename='file/' + account[12] or '')}}"
+                                            class="form-control form-control-lg" readonly>
+                                            {{account[12] or '' }}</a>
+                                        {% else %}
+                                        <input type="text" class="form-control form-control-lg"
+                                            placeholder="No Birth Cirtificate Attach" readonly>
+                                        {% endif %}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <input type="text" id="email" class="form-control form-control-lg" name="email"
-                                    placeholder="Enter E-mail" value="{{account[15] or '' }}" readonly />
-                                <p id="mail" class="error"></p>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <input type="date" id="profiledate" class="form-control form-control-lg"
-                                    name="profileupdatedate" readonly value="{{account[11] or '' }}" />
-                            </div>
-                            {% if error %}
-                            <p class="error"><strong>{{ error }}</strong></p>
-                            {% endif %}
-                            <button class="btn btn-primary btn-lg btn-block"
-                                onclick="return confirm('Are You Sure To Save This Record?')"
-                                otype=" submit">Update</button>
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="email" class="form-control form-control-lg" name="email"
+                                        placeholder="Enter E-mail" value="{{account[15] or '' }}" readonly />
+                                    <p id="mail" class="error"></p>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="date" id="profiledate" class="form-control form-control-lg"
+                                        name="profileupdatedate" readonly value="{{account[11] or '' }}" />
+                                </div>
+                                {% if error %}
+                                <p class="error"><strong>{{ error }}</strong></p>
+                                {% endif %}
+                                <button id="btnenter" class="btn btn-primary btn-lg btn-block"
+                                    onclick="return confirm('Are You Sure To Save This Record?')"
+                                    type=" submit">Update</button>
                         </form>
                     </div>
                 </div>
